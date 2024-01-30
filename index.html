@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pakar Rekomendasi Wisata Garut</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: green;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        select {
+            width: 100%;
+            padding: 1%;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button {
+            background-color: green;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 2.5%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #result {
+            font-weight: bold;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #treatment {
+            font-weight: normal;
+            color: #555;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 70%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 80%;
+            }
+            select {
+                width: 100%;
+                padding: 1%;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistem Pakar</h1>
+        <h2>Rekomendasi Wisata Garut</h2>
+        <p>Nama : Nasya Aprilia</p>
+        <p>Nim : 21832006</p>
+        <p>kelas : PTI 3A</p>
+        <form id="diagnosisForm">
+            <label for="symptoms">Pilih Salah Satu Minat Anda:</label>
+            <select id="symptoms" multiple>
+                <option value="1">Saya suka wisata alam</option>
+                <option value="2">Saya lebih suka wisata sejarah</option>
+                <option value="3">Saya mencari tempat wisata untuk bersantai</option>
+                <option value="4">Saya suka wisata petualangan</option>
+                <option value="5">Saya ingin mencoba kuliner khas Garut</option>
+                <option value="6">Saya tertarik dengan wisata religi</option>
+                <option value="7">Saya ingin mengunjungi air terjun</option>
+                <option value="8">Saya suka bermain air?</option>
+                <option value="9">Saya mencari tempat untuk belajar sejarah lokal</option>
+                <option value="10">Saya ingin melihat pemandangan dari ketinggian</option>
+                <option value="11">Saya suka wisata edukasi</option>
+                <option value="12">Saya mencari tempat yang cocok untuk piknik</option>
+                <option value="13">Saya ingin melihat keindahan danau</option>
+                <option value="14">Saya tertarik dengan wisata budaya lokal</option>
+                <option value="15">Apakah Anda ingin mencoba aktivitas luar ruangan</option>
+            </select>
+            <button type="button" onclick="diagnose()">Rekomendasi</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function diagnose() {
+            var selectedSymptoms = [];
+            var selectBox = document.getElementById('symptoms');
+            for (var i = 0; i < selectBox.options.length; i++) {
+                if (selectBox.options[i].selected) {
+                    selectedSymptoms.push(selectBox.options[i].value);
+                }
+            }
+
+            var result = "Rekomendasi: ";
+            if (selectedSymptoms.length === 0) {
+                result += "Pilih setidaknya satu minat anda.";
+            } else {
+                if (selectedSymptoms.includes("1")) {
+                    result += "Gunung Papandayan";
+                } else if (selectedSymptoms.includes("2")) {
+                    result += "Kampung Naga";
+                } else if (selectedSymptoms.includes("3")) {
+                    result += "Situ Bagendit";
+                } else if (selectedSymptoms.includes("4")) {
+                    result += "Curug Orok";
+                } else if (selectedSymptoms.includes("5")) {
+                    result += "Sate Maranggi";
+                } else if (selectedSymptoms.includes("6")) {
+                    result += "Masjid Agung Garut";
+                } else if (selectedSymptoms.includes("7")) {
+                    result += "Curug Citiis";
+                } else if (selectedSymptoms.includes("8")) {
+                    result += "Kawah Karaha";
+                } else if (selectedSymptoms.includes("9")) {
+                    result += "Museum Geologi Garut";
+                } else if (selectedSymptoms.includes("10")) {
+                    result += "Bukit Paralayang";
+                } else if (selectedSymptoms.includes("11")) {
+                    result += "Kampung Pulo";
+                } else if (selectedSymptoms.includes("12")) {
+                    result += "Kampung Sampireun";
+                } else if (selectedSymptoms.includes("13")) {
+                    result += "Situ Cangkuang";
+                } else if (selectedSymptoms.includes("14")) {
+                    result += "Pura Parahyangan Agung Jagatkartta";
+                } else if (selectedSymptoms.includes("15")) {
+                    result += "Ranca Upas";
+                } else {
+                    result += "Tidak dapat menentukan wisata.";
+                }
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
